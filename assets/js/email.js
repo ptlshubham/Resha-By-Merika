@@ -32,13 +32,13 @@ function sendRequest() {
 	var name = escape(document.getElementById("name").value);
 	var email = escape(document.getElementById("email").value);
 	var subject = escape(document.getElementById("subject").value);
-	var body = document.getElementById("body").value;
+	var body = document.getElementById("message").value;
 
 	try{
     http.open('POST',  'php/contactform.php');
     http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     http.onreadystatechange = handleResponse;
-		http.send('name='+name+'&email='+email+'&subject='+subject+'&body='+body+'&rnd='+rnd);
+		http.send('name='+name+'&email='+email+'&subject='+subject+'&message='+message+'&rnd='+rnd);
 	}
 	catch(e){}
 	finally{
@@ -107,7 +107,7 @@ function sendRequest_popup() {
     http.open('POST',  'php/contactform.php');
     http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     http.onreadystatechange = handleResponse_popup;
-		http.send('name='+name+'&email='+email+'&subject='+subject+'&body='+body+'&rnd='+rnd);
+		http.send('name='+name+'&email='+email+'&subject='+subject+'&message='+message+'&rnd='+rnd);
 	}
 	catch(e){}
 	finally{
@@ -194,7 +194,7 @@ function check_values() {
 	var name = '';
 	var email = '';
 	var subject = '';
-	var body = '';
+	var message = '';
 	
 	if(typeof $j('#contactform #name').val() != "undefined" )
 	{
@@ -208,9 +208,9 @@ function check_values() {
 	{
 	 subject = document.getElementById("subject").value;
 	}
-	if(typeof $j('#contactform #body').val() != "undefined" )
+	if(typeof $j('#contactform #message').val() != "undefined" )
 	{
-	 body = document.getElementById("body").value;
+	 body = document.getElementById("message").value;
 	}
 
 	
@@ -252,17 +252,17 @@ function check_values() {
 		else
 		$j('#contactform #subject').parent().find(".error").remove();
 		
-		if($j('#contactform #body').val()!=undefined)
-		if($j('#contactform #body').val()==''){
-		var hasClass=$j('#contactform #body').parent().find(".error").hasClass("error");
+		if($j('#contactform #message').val()!=undefined)
+		if($j('#contactform #message').val()==''){
+		var hasClass=$j('#contactform #message').parent().find(".error").hasClass("error");
 	 	if(!hasClass)
-	 	    $j('#contactform #body').parent().append('<label for="contactname" generated="true" class="error">You need to enter a message!</label>');	
-			$j('#contactform #body').focus();
+	 	    $j('#contactform #message').parent().append('<label for="contactname" generated="true" class="error">You need to enter a message!</label>');	
+			$j('#contactform #message').focus();
 			//return false;
 			errors++;
 		}
 		else
-		$j('#contactform #body').parent().find(".error").remove();
+		$j('#contactform #message').parent().find(".error").remove();
 		
 	
 
@@ -353,7 +353,7 @@ function check_values_booking() {
 	
 	var name = '';
 	var email = '';
-	var body = '';
+	var message = '';
 	
 	var surname = '';
 	var arrival = '';
@@ -372,9 +372,9 @@ function check_values_booking() {
 	{
 	 email = document.getElementById("email").value;
 	}
-	if(typeof $j('#contactform_booking #body').val() != "undefined" )
+	if(typeof $j('#contactform_booking #message').val() != "undefined" )
 	{
-	 body = document.getElementById("body").value;
+		message = document.getElementById("message").value;
 	}
 
 	if(typeof $j('#contactform_booking #surname').val() != "undefined" )
@@ -543,7 +543,7 @@ function check_values_popup() {
 	var name = document.getElementById("name_popup").value;
 	var email = document.getElementById("email_popup").value;
 	var subject = document.getElementById("subject_popup").value;
-	var body = document.getElementById("body_popup").value;
+	var message = document.getElementById("message_popup").value;
 	
 	var errors=0;
      if($j('#contactform_popup #name_popup').val()!=undefined)

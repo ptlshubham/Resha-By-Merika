@@ -4142,7 +4142,7 @@ ul.testimonials-slider {
 ================================================== */
 
 .dark, .dark ul.timeline_items, .dark .icon_box a .desc, .dark .icon_box a:hover .desc, .dark .feature_list ul li a, .dark .list_item a, .dark .list_item a:hover, .dark .widget_recent_entries ul li a {
-	color: #fff !important;
+	color: #0e0a0a !important;
 }
 .dark .ui-tabs .ui-tabs-panel, .dark .accordion .question .answer {
 	color: #626262;
